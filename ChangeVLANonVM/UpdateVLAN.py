@@ -92,6 +92,7 @@ def get_task_status(ip_address,user,passwd,task_uuid):
 
     
 #Set the credentials
+# You can hard code the values to make running again easy, suggest password remain a prompt for security
 #PC_user = 'admin'
 PC_user = input ("User ID for Prism Central: ")
 PC_pass = getpass.getpass('Password for Prism Central: ')
