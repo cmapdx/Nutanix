@@ -94,11 +94,13 @@ def get_task_status(ip_address,user,passwd,task_uuid):
 #Set the credentials
 # You can hard code the values to make running again easy, suggest password remain a prompt for security
 #PC_user = 'admin'
-PC_user = input ("User ID for Prism Central: ")
-PC_pass = getpass.getpass('Password for Prism Central: ')
-PC_address = input ("Prism Central IP or DNS name: ")
-VLAN_tag = input ("Old VLAN tag number: ")
-new_VLAN = input ("New VLAN tag number: ")
+#This has been tested against both Prism Central and Prism Element with success
+PC_address = input ("Prism IP or DNS name: ")
+PC_user = input ("User ID for Prism: ")
+PC_pass = getpass.getpass('Password for Prism: ')
+
+VLAN_tag = int(input ("Old VLAN tag number: "))
+new_VLAN = int(input ("New VLAN tag number: "))
 #This script was designed to handle one cluster because the UUID of the VLAN is different between clusters
 #If you want to handle multiple clusters then you will need to change the UUID from a single entry to mulitple item list
 Cluster_Name = input ("Cluster Name: ")
@@ -115,7 +117,9 @@ resp = make_request(PC_address, PC_user, PC_pass, call_type, payload)
 if resp.ok:
     # Cycle through the subnet "entities", and check if its id matches the old VLAN
     for subnet in json.loads(resp.content)['entities']:
-        if subnet['spec']['cluster_reference']['name'] == Cluster_Name:
+        #The lower function remove the case so the compare is not case sensitive
+        #If you want the compare to be case sensitive then remove the 2 ".lower()" entries
+        if subnet['spec']['cluster_reference']['name'].lower() == Cluster_Name.lower():
             # Get UUID for both old and new VLANs
             if subnet['spec']['resources']['vlan_id'] == VLAN_tag:
                 if 'uuid' in subnet['metadata']:
