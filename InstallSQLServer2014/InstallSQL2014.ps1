@@ -18,8 +18,6 @@ $setupDriveLetter = ($mountResult | Get-Volume).DriveLetter
 Write-Output "Install ISO mounted on : $setupDriveLetter"
 
 $SA_Password = "nutanix/4u"
-$edition = "Standard"
-$HOSTNAME=$(hostname)
 $PackageName = "MsSqlServer2014Standard"
 $Prerequisites = "Net-Framework-Core"
 $silentArgs = "/IACCEPTSQLSERVERLICENSETERMS /Q /ACTION=install /FEATURES=SQLENGINE "
