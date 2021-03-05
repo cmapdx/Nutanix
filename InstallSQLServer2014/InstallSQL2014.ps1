@@ -4,7 +4,7 @@
 # Format the new drive and set variable with drive letter
 Get-Disk -Number 1 | Initialize-Disk -ErrorAction SilentlyContinue
 New-Partition -DiskNumber 1 -UseMaximumSize -AssignDriveLetter -ErrorAction SilentlyContinue | Format-Volume -Confirm:$false
-$DriveLetter = $(Get-Partition -DiskNumber 1 -PartitionNumber 2 | select DriveLetter -ExpandProperty DriveLetter)
+$DriveLetter = $(Get-Partition -DiskNumber 1 -PartitionNumber 2 | Select-Object DriveLetter -ExpandProperty DriveLetter)
 
 #Download the SQL Server 2014 ISO file from Microsoft
 $SQL_URL = "http://download.microsoft.com/download/7/9/F/79F4584A-A957-436B-8534-3397F33790A6/SQLServer2014SP3-FullSlipstream-x64-ENU.iso"
