@@ -24,10 +24,12 @@ Sample Output:
     App Name: Escript               App UUID: 5a99cc8d-41b2-467b-9693-cdde9519b998
    
    If you uncomment the last few lines and use an App UUID you will see additional output like this:
+    
     {
        "runlog_uuid": "012c2a85-b8fe-409f-b15e-b82a80041117"
     }
 
 Example video showing how to create a Playbook with CPU Contention trigger and a ScaleOut repsone:
+
 https://www.youtube.com/watch?v=PoPN7QRZdYg
 
