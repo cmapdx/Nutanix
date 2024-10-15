@@ -7,4 +7,6 @@ Explanaition of how to use these scripts:
 * config.json contains the PC IP and user details for logging in, can also have Log file override details
 * address.txt contains the name on the 1st line, description on 2nd line, and 3rd line and above are IPs
   
-Script was tested with PC 2024.1.0.1, Powershell 5
+Script was tested with PC 2024.1.0.1, Powershell 7
+
+This requires PS 7
