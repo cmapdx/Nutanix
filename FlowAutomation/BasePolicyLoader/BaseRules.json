@@ -1,0 +1,118 @@
+{
+    "description": "List of rules for bulk importing to security policies",
+    "rules": [
+        {
+            "name": "SolarWinds",
+            "inbound_rules": [
+                {
+                    "type": "category",
+                    "lookup_category": "AppType",
+                    "lookup_value": "SOLARWINDS",
+                    "service_list": [
+                        {
+                            "kind": "service_group",
+                            "name": "SolarWinds_svc",
+                            "uuid": "a3738299-9498-47a1-bcf5-0f04915f3898"
+                        }
+                    ]
+                }
+            ],
+            "outbound_rules": [
+                {
+                    "type": "category",
+                    "lookup_category": "AppType",
+                    "lookup_value": "SOLARWINDS",
+                    "service_list": [
+                        {
+                            "kind": "service_group",
+                            "name": "SolarWinds_svc",
+                            "uuid": "a3738299-9498-47a1-bcf5-0f04915f3898"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "HYCU",
+            "inbound_rules": [
+                {
+                    "type": "address",
+                    "address_list": [
+                        {
+                            "name": "HYCU_IPs_AB",
+                            "kind": "address_group",
+                            "uuid": "54c41aa1-13b4-4567-a123-d46539dababc5"
+                        }
+                    ],
+                    "service_list": [
+                        {
+                            "kind": "service_group",
+                            "name": "HYCU_Ports",
+                            "uuid": "d2deb9f7-1111-2222-983d-9b650ddcorey"
+                        }
+                    ]
+                }
+            ],
+            "outbound_rules": [
+                {
+                    "type": "address",
+                    "address_list": [
+                        {
+                            "name": "HYCU_IPs_AB",
+                            "kind": "address_group",
+                            "uuid": "54c41aa1-13b4-4567-a123-d46539dababc5"
+                        }
+                    ],
+                    "service_list": [
+                        {
+                            "kind": "service_group",
+                            "name": "HYCU_Ports",
+                            "uuid": "d2deb9f7-1111-2222-983d-9b650ddcorey"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "NGT",
+            "inbound_rules": [
+                {
+                    "type": "address",
+                    "address_list": [
+                        {
+                            "name": "nutanix_cluster_AB",
+                            "kind": "address_group",
+                            "uuid": "42fa8c7e-38de-life-9423-ede209canson"
+                        }
+                    ],
+                    "service_list": [
+                        {
+                            "kind": "service_group",
+                            "name": "NGT_Ports_svc",
+                            "uuid": "8fdb89a9-20b8-4f18-a0ec-coreyanson"
+                        }
+                    ]
+                }
+            ],
+            "outbound_rules": [
+                {
+                    "type": "address",
+                    "address_list": [
+                        {
+                            "name": "nutanix_cluster_AB",
+                            "kind": "address_group",
+                            "uuid": "42fa8c7e-38de-life-9423-ede209canson"
+                        }
+                    ],
+                    "service_list": [
+                        {
+                            "kind": "service_group",
+                            "name": "NGT_Ports_svc",
+                            "uuid": "8fdb89a9-20b8-4f18-a0ec-coreyanson"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
