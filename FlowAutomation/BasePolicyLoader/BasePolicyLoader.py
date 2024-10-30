@@ -159,7 +159,7 @@ if resp.ok:
             value_name = value['spec']['name']
             value_uuid = value['metadata']['uuid']
             
-            if 'quarantine_rule' not in value['spec']['resources']:
+            if 'quarantine_rule' not in value['spec']['resources'] and 'FSCVM-default-policy' not in value_name:
                 #Skip if the rule a quarantine rule
                 writeLog ("INFO",f"Policy Name: {value_name}",logfile)
 
